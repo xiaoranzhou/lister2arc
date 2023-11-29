@@ -84,7 +84,7 @@
     <br>
         <input class="btn btn-primary d-inline"  type="file" id="input_json" name="json" multiple/>
     <input style="display:none" type="file" id="input_xlsx" name="xlsx" multiple/>
-    <button class="btn btn-primary" style="display:inline" id="converter" onclick="main(cleanend_global);"> Converter </button>
+    <button class="btn btn-primary" style="display:inline" id="converter" onclick="main(cleaned_global);"> Converter </button>
    
     <div class="d-flex justify-content-center d-none" id="waiting">
         <div class="spinner-grow btn-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -96,7 +96,231 @@
     </div>
     </div>
     <script type="text/javascript">
-    var v_list, csv_content, cleanend_global;
+
+    var isaTemplate = {
+    "comments": [],
+    "description": "",
+    "identifier": "",
+    "ontologySourceReferences": [
+        {
+            "comments": [],
+            "description": "",
+            "file": "",
+            "name": "",
+            "version": ""
+        }
+    ],
+    "people": [],
+    "publicReleaseDate": "",
+    "publications": [],
+    "studies": [
+        {
+            "assays": [
+                {
+                    "characteristicCategories": [],
+                    "comments": [],
+                    "dataFiles": [
+                        {
+                            "@id": "",
+                            "comments": [],
+                            "name": "",
+                            "type": ""
+                        }
+                       
+                    ],
+                    "filename": "",
+                    "materials": {
+                        "otherMaterials": [
+                            {
+                                "@id": "",
+                                "characteristics": [],
+                                "comments": [],
+                                "name": "",
+                                "type": ""
+                            }
+                        ],
+                        "samples": [
+                            {
+                                "@id": ""
+                            },
+                            {
+                                "@id": ""
+                            },
+                            {
+                                "@id": ""
+                            }
+                        ]
+                    },
+                    "measurementType": {
+                        "@id": "#",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "processSequence": [
+                        {
+                            "@id": "",
+                            "comments": [],
+                            "date": "",
+                            "executesProtocol": {
+                                "@id": ""
+                            },
+                            "inputs": [
+                                {
+                                    "@id": ""
+                                }
+                            ],
+                            "name": "",
+                            "nextProcess": {
+                                "@id": ""
+                            },
+                            "outputs": [
+                                {
+                                    "@id": ""
+                                }
+                            ],
+                            "parameterValues": [],
+                            "performer": ""
+                        }
+
+                    ],
+                    "technologyPlatform": "",
+                    "technologyType": {
+                        "@id": "",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "unitCategories": []
+                }
+            ],
+            "characteristicCategories": [],
+            "comments": [],
+            "description": "",
+            "factors": [],
+            "filename": "",
+            "identifier": "",
+            "materials": {
+                "otherMaterials": [],
+                "samples": [
+                    {
+                        "@id": "",
+                        "characteristics": [
+                            {
+                                "category": {
+                                    "@id": ""
+                                },
+                                "comments": [],
+                                "value": {
+                                    "@id": "",
+                                    "annotationValue": "",
+                                    "comments": [],
+                                    "termAccession": "",
+                                    "termSource": ""
+                                }
+                            }
+                        ],
+                        "comments": [],
+                        "derivesFrom": [
+                            {
+                                "@id": ""
+                            }
+                        ],
+                        "factorValues": [],
+                        "name": ""
+                    }
+
+                ],
+                "sources": [
+                    {
+                        "@id": "",
+                        "characteristics": [],
+                        "comments": [],
+                        "name": ""
+                    }
+                ]
+            },
+            "people": [
+                {
+                    "address": "",
+                    "affiliation": "",
+                    "comments": [],
+                    "email": "",
+                    "fax": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "midInitials": "",
+                    "phone": "",
+                    "roles": [
+                        {
+                            "@id": "",
+                            "annotationValue": "",
+                            "comments": [],
+                            "termAccession": "",
+                            "termSource": ""
+                        }
+                    ]
+                }
+            ],
+            "processSequence": [
+            ],
+            "protocols": [
+                {
+                    "@id": "#",
+                    "comments": [],
+                    "components": [],
+                    "description": "",
+                    "name": "",
+                    "parameters": [],
+                    "protocolType": {
+                        "@id": "",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "uri": "",
+                    "version": ""
+                }
+
+            ],
+            "publicReleaseDate": "",
+            "publications": [
+                {
+                    "authorList": "",
+                    "comments": [],
+                    "doi": "",
+                    "pubMedID": "",
+                    "status": {
+                        "@id": "",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "title": ""
+                }
+            ],
+            "studyDesignDescriptors": [
+                {
+                    "@id": "",
+                    "annotationValue": "",
+                    "comments": [],
+                    "termAccession": "",
+                    "termSource": ""
+                }
+            ],
+            "submissionDate": "",
+            "title": "",
+            "unitCategories": []
+        }
+    ],
+    "submissionDate": "",
+    "title": ""
+};    
+    var v_list, csv_content, cleaned_global;
     var input_json , input_xlsx;
     var log_backup = console.log;
     var log_messages = [];
@@ -117,7 +341,7 @@
         output_div.innerText= log_messages.join('\r\n');
     };
     const input1 = document.getElementById("input_json");
-    input1.addEventListener("change", handleFiles1, false);
+    input1.addEventListener("change", handleFiles2, false);
     function handleFiles1() {
 
             if (this.files.length > 0) 
@@ -169,7 +393,7 @@
                     
                 };
                 
-                cleanend_global = cleaned_data;    
+                cleaned_global = cleaned_data;    
             });
             
             reader.readAsText(this.files[0]); // Read the uploaded file
@@ -186,8 +410,120 @@
     }
             
 
+    function handleFiles2() {
 
+        if (this.files.length > 0) 
+        {
+        var reader = new FileReader(); // File reader to read the file 
+
+        // This event listener will happen when the reader has read the file
+        reader.addEventListener('load', function() {
+        var result = JSON.parse(reader.result); // Parse the result into an object 
+        //console.log("reader.result is : "+reader.result);
+        let input_json = result;
+        //console.log("result is : "+result);
+        var cleaned_data= {};
+        let column_n=0;
+        let current_column_name;
+            for (const [index, element] of input_json.entries()) {
+            if (element[1] != "Further informations"){
+                if (element[1] == "metadata section"){
+                    current_column_name = element[2]
+                    column_n =+1
+                    console.log(current_column_name, column_n);
+                    cleaned_data[current_column_name] ={} ;
+
+                } else{
+                    if (element[0] == ""){
+
+                        let content = {};
+                        const k1 = element[1];
+                            
+                            cleaned_data[current_column_name][k1] = element[2];
+                        }else if (element[0] == "-" ){
+                            current_column_name = element[2];
+                            cleaned_data["Experiment Context"][current_column_name]=[];
+
+                        } else {
+                            let content = { "paragraph_number" :element[0] , "key": element[1], "value": element[2], "measure": element[3], "unit": element[4] }
+                            
+                            cleaned_data["Experiment Context"][current_column_name].push(content);
+
+                        }
+
+
+                    }
+                    
+
+                }
+                
+
+                
+            };
             
+            cleaned_global = cleaned_data;
+            for (const [ele1, ele2] of Object.entries( cleaned_data["Project"])){
+                if (ele1 == "Title"){
+                    isaTemplate["title"] = ele2;
+                }else{
+                    isaTemplate["comments"].push({"@id": " ","name": ele1 ,"value":ele2 });
+                }
+                
+            };
+
+            for (const [ele1, ele2] of Object.entries( cleaned_data["Study"])){
+                if (ele1 == "Responsible"){
+                    isaTemplate["studies"][0]["people"][0]["firstName"] = ele2.split(" ")[0];
+                    isaTemplate["studies"][0]["people"][0]["lastName"] = ele2.split(" ")[1];
+                }else{
+                    isaTemplate["studies"][0]["comments"].push({"@id": " ","name": ele1 ,"value":ele2 });
+                }
+                
+            }
+            for (const [ele1, ele2] of Object.entries( cleaned_data["Experiment Info"])){
+                // if (ele1 == "Responsible"){
+                //     isaTemplate["studies"][0]["people"][0]["firstName"] = ele2.split(" ")[0];
+                //     isaTemplate["studies"][0]["people"][0]["lastName"] = ele2.split(" ")[1];
+                // }else{
+                    isaTemplate["studies"][0]["assays"][0]["comments"].push({"@id": " ","name": ele1 ,"value":ele2 });
+                // }
+                
+            }
+            
+            for (const [ele1, ele2] of Object.entries( cleaned_data["Experiment Context"])){
+                 if (ele1 == "Procedure"){
+                    for (const [ele21, ele22] of Object.entries( ele2)){
+                        isaTemplate["studies"][0]["assays"][0]["processSequence"].push(
+                            {"@id": "", "comments": [{"@id": " ","name": "paragraph_number" ,"value":ele22["paragraph_number"] }], "date": "", "executesProtocol": { "@id": ""},
+                            "inputs": [ { "@id": "" } ], "name": ele22["key"], "outputs": [ { "@id": "" } ], "parameterValues": [ele22["value"]], "performer": "" }
+
+                        );
+
+                    }
+                 }else{
+                    isaTemplate["studies"][0]["assays"][0]["comments"].push({"@id": " ","name": ele1 ,"value":ele2 });
+                 }
+                
+            }
+            
+
+        });
+
+        reader.readAsText(this.files[0]); // Read the uploaded file
+
+
+
+
+
+            }else{
+
+        window.alert("no file is selected to import");
+
+        };
+    }
+            
+
+
     async function main(input_json) {
             
             if ( input_json ===undefined||input_json.length <0 ) {

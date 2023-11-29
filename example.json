@@ -1,0 +1,244 @@
+{
+    "comments": [],
+    "description": "",
+    "identifier": "",
+    "ontologySourceReferences": [
+        {
+            "comments": [],
+            "description": "",
+            "file": "",
+            "name": "",
+            "version": ""
+        }
+    ],
+    "people": [],
+    "publicReleaseDate": "",
+    "publications": [],
+    "studies": [
+        {
+            "assays": [
+                {
+                    "characteristicCategories": [],
+                    "comments": [],
+                    "dataFiles": [
+                        {
+                            "@id": "",
+                            "comments": [],
+                            "name": "",
+                            "type": ""
+                        }
+                       
+                    ],
+                    "filename": "",
+                    "materials": {
+                        "otherMaterials": [
+                            {
+                                "@id": "",
+                                "characteristics": [],
+                                "comments": [],
+                                "name": "",
+                                "type": ""
+                            }
+                        ],
+                        "samples": [
+                            {
+                                "@id": ""
+                            },
+                            {
+                                "@id": ""
+                            },
+                            {
+                                "@id": ""
+                            }
+                        ]
+                    },
+                    "measurementType": {
+                        "@id": "#",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "processSequence": [
+                        {
+                            "@id": "",
+                            "comments": [],
+                            "date": "",
+                            "executesProtocol": {
+                                "@id": ""
+                            },
+                            "inputs": [
+                                {
+                                    "@id": ""
+                                }
+                            ],
+                            "name": "",
+                            "nextProcess": {
+                                "@id": ""
+                            },
+                            "outputs": [
+                                {
+                                    "@id": ""
+                                }
+                            ],
+                            "parameterValues": [],
+                            "performer": ""
+                        }
+
+                    ],
+                    "technologyPlatform": "",
+                    "technologyType": {
+                        "@id": "",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "unitCategories": []
+                }
+            ],
+            "characteristicCategories": [],
+            "comments": [],
+            "description": "",
+            "factors": [],
+            "filename": "",
+            "identifier": "",
+            "materials": {
+                "otherMaterials": [],
+                "samples": [
+                    {
+                        "@id": "",
+                        "characteristics": [
+                            {
+                                "category": {
+                                    "@id": ""
+                                },
+                                "comments": [],
+                                "value": {
+                                    "@id": "",
+                                    "annotationValue": "",
+                                    "comments": [],
+                                    "termAccession": "",
+                                    "termSource": ""
+                                }
+                            }
+                        ],
+                        "comments": [],
+                        "derivesFrom": [
+                            {
+                                "@id": ""
+                            }
+                        ],
+                        "factorValues": [],
+                        "name": ""
+                    }
+
+                ],
+                "sources": [
+                    {
+                        "@id": "",
+                        "characteristics": [],
+                        "comments": [],
+                        "name": ""
+                    }
+                ]
+            },
+            "people": [
+                {
+                    "address": "",
+                    "affiliation": "",
+                    "comments": [],
+                    "email": "",
+                    "fax": "",
+                    "firstName": "",
+                    "lastName": "",
+                    "midInitials": "",
+                    "phone": "",
+                    "roles": [
+                        {
+                            "@id": "",
+                            "annotationValue": "",
+                            "comments": [],
+                            "termAccession": "",
+                            "termSource": ""
+                        }
+                    ]
+                }
+            ],
+            "processSequence": [
+                {
+                    "@id": "",
+                    "comments": [],
+                    "date": "",
+                    "executesProtocol": {
+                        "@id": ""
+                    },
+                    "inputs": [
+                        {
+                            "@id": ""
+                        }
+                    ],
+                    "name": "",
+                    "outputs": [
+                        {
+                            "@id": ""
+                        }
+                    ],
+                    "parameterValues": [],
+                    "performer": ""
+                }
+            ],
+            "protocols": [
+                {
+                    "@id": "#",
+                    "comments": [],
+                    "components": [],
+                    "description": "",
+                    "name": "",
+                    "parameters": [],
+                    "protocolType": {
+                        "@id": "",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "uri": "",
+                    "version": ""
+                }
+
+            ],
+            "publicReleaseDate": "",
+            "publications": [
+                {
+                    "authorList": "",
+                    "comments": [],
+                    "doi": "",
+                    "pubMedID": "",
+                    "status": {
+                        "@id": "",
+                        "annotationValue": "",
+                        "comments": [],
+                        "termAccession": "",
+                        "termSource": ""
+                    },
+                    "title": ""
+                }
+            ],
+            "studyDesignDescriptors": [
+                {
+                    "@id": "",
+                    "annotationValue": "",
+                    "comments": [],
+                    "termAccession": "",
+                    "termSource": ""
+                }
+            ],
+            "submissionDate": "",
+            "title": "",
+            "unitCategories": []
+        }
+    ],
+    "submissionDate": "",
+    "title": ""
+}
